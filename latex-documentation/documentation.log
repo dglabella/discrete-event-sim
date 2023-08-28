@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.6.18)  27 AUG 2023 23:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.6.18)  28 AUG 2023 17:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -95,25 +95,27 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/home/matias/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}] [2] (documentat
 ion.aux) ) 
 Here is how much of TeX's memory you used:
- 856 strings out of 477325
- 17778 string characters out of 2828654
+ 858 strings out of 477325
+ 17807 string characters out of 2828654
  356111 words of memory out of 3000000
- 22043 multiletter control sequences out of 15000+600000
- 472402 words of font info for 42 fonts, out of 8000000 for 9000
+ 22045 multiletter control sequences out of 15000+600000
+ 473007 words of font info for 44 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
- 58i,5n,63p,657b,288s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 58i,5n,63p,657b,283s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/matias/.miktex/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600
 /tcrm1000.pk></home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/c
 m/cmbx12.pfb></home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/c
 m/cmmi10.pfb></home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/c
-m/cmr10.pfb></home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm
-/cmsy10.pfb></home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm
-/cmsy7.pfb></home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/
-cmtt10.pfb></home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/sym
-bols/msbm10.pfb>
-Output written on documentation.pdf (2 pages, 83015 bytes).
+m/cmmi7.pfb></home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm
+/cmr10.pfb></home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/
+cmr7.pfb></home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb></home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cm
+sy7.pfb></home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmt
+t10.pfb></home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbol
+s/msbm10.pfb>
+Output written on documentation.pdf (2 pages, 102901 bytes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
+ 59 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

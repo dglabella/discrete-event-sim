@@ -99,6 +99,8 @@ INPUT /home/matias/.miktex/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm
 INPUT /home/matias/.miktex/texmfs/install/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 OUTPUT documentation.pdf
 INPUT /home/matias/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map
+INPUT /home/matias/.miktex/texmfs/install/fonts/tfm/public/cm/cmr12.tfm
+INPUT /home/matias/.miktex/texmfs/install/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /home/matias/.miktex/texmfs/install/fonts/tfm/public/cm/cmtt8.tfm
 INPUT /home/matias/.miktex/texmfs/install/fonts/tfm/public/cm/cmtt8.tfm
 INPUT documentation.aux
@@ -108,8 +110,12 @@ INPUT /home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.
 INPUT /home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT /home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb
+INPUT /home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb
 INPUT /home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb
+INPUT /home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb
+INPUT /home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT /home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /home/matias/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb

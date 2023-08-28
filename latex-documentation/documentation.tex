@@ -45,7 +45,15 @@ where:
 \end{itemize}
 
 \section*{Rules of Transition}
-It would be desirable that each user could decide how the system evolves over time according to the diferent events that occur. This is why we introduce rules of transition, which are made up of two parts: The first part is a first order formula that indicates the conditions that a configuration must satisfy before applying the transition. The second part defines the new configuration of the system after the application. Thus, we can see a rule of transistion as a partial function \verb|Rule|: \verb|CONFIGURATION| $\to$ \verb|CONFIGURATION|. We will now show examples of such rules for a given system: 
+It would be desirable that each user could decide how the system evolves over time according to the diferent events that occur. This is why we introduce rules of transition, which are made up of two parts: The first part is a first order formula that indicates the conditions that a configuration must satisfy before applying the transition. The second part defines the new configuration of the system after the application. Thus, we can see a rule of transistion as a partial function \verb|Rule|: \verb|CONFIGURATION| $\to$ \verb|CONFIGURATION|. We will now show examples of such rules for a given system. 
+
+\subsection*{Example of a traditional system}
+
+We will consider a traditional system made up of $n$ servers and one channel, and where the only events that we consider are arribals and exits. The initial configuration of this system is: 
+
+\[
+	\langle \{s_1, \ldots, s_n\}, \emptyset, \{Q\}, \{\mathtt{ARRIBAL}, \mathtt{OUT}\}, \emptyset, \emptyset, \{(s_1, Q), \ldots, (s_n, Q)\}, \emptyset \rangle
+\]
 
 \begin{center}
   \begin{prooftree}
