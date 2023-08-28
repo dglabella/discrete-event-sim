@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage{amsfonts}
+\usepackage{ebproof}
+
+\begin{document}
+\section*{Configuration}
+
+\verb|SERVER| refers to any class of elements where this operation is defined:
+\begin{itemize}
+	\item getId: \verb|SERVER| $\to$ $\mathbb{N}$. 
+\end{itemize}
+We impose the restriction that this function is inyective.
+
+\verb|ENTITY| refers to any class of elements where this operation is defined:
+\begin{itemize}
+	\item getId: \verb|ENTITY| $\to$ $\mathbb{N}$. 
+	
+\end{itemize}
+We impose the restriction that this function is inyective.
+
+Elements of type \verb|FEL| are subsets of \verb|EVENT| and they are operated as priority queues. The priority of a given event is given by it's time of ocurrence and a total relation defined over event types: 
+\begin{itemize}
+	\item \verb|insertEvent|: \verb|FEL| $\to$ (\verb|EVENT| $\to$ \verb|FEL|). 
+	\item \verb|deleteIncoming|: \verb|FEL| $\to$ \verb|FEL|. 
+	\item \verb|peekIncoming|: \verb|FEL| $\to$ \verb|EVENT|.
+
+\end{itemize}
+
+Elements of type \verb|CHANNEL| are subsets of $\mathbb{N}$ $\times$ \verb|ENTITY| and are operated as priority queues: \begin{itemize} \item \verb|insertEntity|: \verb|CHANNEL| $\to$ ($\mathbb{N}$ $\to$ (\verb|ELEMENT| $\to$ \verb|CHANNEL|)).  \item \verb|peekTopEntity|: \verb|CHANNEL| $\to$ \verb|ELEMENT|.  \item \verb|deleteTopEntity|: \verb|CHANNEL| $\to$ \verb|CHANNEL|.  \end{itemize}
+
+
+A configuration is a tuple 
+\begin{center}
+	(\verb|Servers|, \verb|Entities|, \verb|Channels|, \verb|isServing|, \verb|waits|, \verb|listens|, $L$)
+\end{center}
+where:
+\begin{itemize}
+	\item \verb|Servers| is a collection of elements of type \verb|SERVER|. 
+	\item \verb|Entities| is a collection of elements of type \verb|ENTITY|. 
+	\item \verb|Channels| is a collection of elements of type \verb|CHANNEL|. 
+	\item \verb|isServing| $\subseteq$ \verb|Servers| $\times$ \verb|Entities| is the relationship that indicates which entity is being served by which server. 
+	\item \verb|waits| $\subseteq$ \verb|Entities| $\times$ \verb|Channels| is the relationship that indicates in which channel an entity is waiting. 
+	\item \verb|attends| $\subseteq$ \verb|Servers| $\times$ \verb|Channels| is the relationship that indicates which channels a given server is currently listening.  
+	\item $L$ is an element of type \verb|FEL|. 
+\end{itemize}
+
+\section*{Rules of Transition}
+It would be desirable that each user could decide how the system evolves over time according to the diferent events that occur. This is why we introduce rules of transition, which are made up of two parts: The first part is a first order formula that indicates the conditions that a configuration must satisfy before applying the transition. The second part defines the new configuration of the system after the application. Thus, we can see a rule of transistion as a partial function \verb|Rule|: \verb|CONFIGURATION| $\to$ \verb|CONFIGURATION|. We will now show examples of such rules for a given system: 
+
+\begin{center}
+  \begin{prooftree}
+    \hypo{\mathtt{isEmpty}(L) = \mathtt{TRUE}} 
+    \hypo{e\mathtt{: ENTITY} \wedge e \not \in \mathtt{Entities}} 
+
+
+
+
+    \infer2{\mathtt{Entities}' = \mathtt{Entities} \cup \{e\} \wedge L' = L \cup \{(\mathtt{ARRIBAL}, k, e)\} }
+  \end{prooftree}
+\end{center}
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+	
+
+
+
+\end{document}
