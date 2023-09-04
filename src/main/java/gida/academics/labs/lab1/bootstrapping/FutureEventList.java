@@ -20,7 +20,7 @@ public class FutureEventList {
         this.ordering = ordering;
     }
 
-    protected Planificable getImminent() {
+    public Planificable getImminent() {
         return this.fel.remove(0);
     }
 
