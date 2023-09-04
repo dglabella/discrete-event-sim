@@ -8,30 +8,36 @@ import gida.academics.labs.lab1.utils.orderings.FutureEventListOrder;
 public class FutureEventList {
 
     private List<Planificable> fel;
-    private Comparator<Planificable> order;
+    private Comparator<Planificable> ordering;
 
     public FutureEventList() {
         this.fel = new ArrayList<>();
-        this.order = new FutureEventListOrder();
+        this.ordering = new FutureEventListOrder();
+    }
+
+    public FutureEventList(List<Planificable> list, Comparator<Planificable> ordering) {
+        this.fel = list;
+        this.ordering = ordering;
     }
 
     protected Planificable getImminent() {
-        throw new RuntimeException("get imminent from the FEL not implemented yet...");
+        return this.fel.remove(0);
     }
 
     public void insert(Planificable event) {
-        throw new RuntimeException("fel insertion not implemented yet...");
+        this.fel.add(event);
+        this.fel.sort(ordering);
     }
 
-    // @Override
-    // public String toString() {
-    // String ret = "[";
+    @Override
+    public String toString() {
+        String ret = "[";
 
-    // for (int i = 0; i < this.fel.size() - 1; i++)
-    // ret += "{" + this.fel.get(i).getEvent().toString() + "},";
+        for (int i = 0; i < this.fel.size() - 1; i++)
+            ret += this.fel.get(i).getEvent().toString() + ",\n";
 
-    // ret += "{" + this.fel.get(this.fel.size() - 1).toString() + "}]";
+        ret += this.fel.get(this.fel.size() - 1).getEvent().toString() + "]";
 
-    // return ret;
-    // }
+        return ret;
+    }
 }
