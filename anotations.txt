@@ -1,0 +1,1 @@
+- review about comparator for events when clock is equal.

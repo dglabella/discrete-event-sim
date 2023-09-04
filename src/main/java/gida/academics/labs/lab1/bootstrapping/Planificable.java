@@ -6,7 +6,7 @@ import gida.academics.labs.lab1.utils.generators.Generator;
 public interface Planificable {
 
     /**
-     * Get the event associated to this planificable.;
+     * Get the event associated to this planificable.
      * 
      * @return The event.
      */

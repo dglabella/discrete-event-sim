@@ -11,4 +11,5 @@ public interface Entity extends Serializable {
     void setCurrentServer(Server server);
 
     Entity build();
+
 }
