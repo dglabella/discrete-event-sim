@@ -22,6 +22,6 @@ public final class UniqueServer implements Selector<Server> {
         if (server != null)
             return Optional.of(this.server);
         else
-            throw new DequeueMalfunction("No sever must have at least one member to be selected");
+            throw new DequeueMalfunction("server must have at least one member to be selected");
     }
 }

@@ -3,11 +3,12 @@ package gida.academics.labs.lab1.bootstrapping;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import gida.academics.labs.lab1.model.Event;
 import gida.academics.labs.lab1.utils.orderings.FutureEventListOrder;
 
 public class FutureEventList {
 
-    private List<Planificable> fel;
+    private List<Event> fel;
     private Comparator<Planificable> ordering;
 
     public FutureEventList() {
