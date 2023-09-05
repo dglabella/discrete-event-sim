@@ -1,47 +1,42 @@
 package gida.academics.labs.lab1.model;
 
-import java.io.Serializable;
-import gida.academics.labs.lab1.bootstrapping.EventOrder;
+import gida.academics.labs.lab1.bootstrapping.FutureEventList;
+import gida.academics.labs.lab1.model.engine.StatisticsComputer;
+import gida.academics.labs.lab1.utils.generators.Generator;
 
 /**
- * This class represents an event in the simulation.
+ * This interface represents an event in the simulation.
  * 
  */
-public final class Event implements Serializable {
-
-    private final double clock;
-    private final EventOrder order;
-
-    private final Entity entity;
+public interface Event {
 
     /**
-     * Constructs an event for the simulation.
+     * returns the ocurrence clock of this event.
      * 
-     * @param clock The time when it occurs.
-     * @param entity The entity in which the event occurs.
-     * @param order The value type for the event.
+     * @return the clock.
      */
-    public Event(double clock, Entity entity, EventOrder order) {
-        this.clock = clock;
-        this.entity = entity;
-        this.order = order;
-    }
+    double getClock();
 
-    public double getClock() {
-        return this.clock;
-    }
+    /**
+     * 
+     * @return
+     */
+    int getPriority();
 
-    public Entity getEntity() {
-        return this.entity;
-    }
+    /**
+     * 
+     * @return
+     */
+    Entity getEntity();
 
-    public EventOrder getOrder() {
-        return this.order;
-    }
-
-    @Override
-    public String toString() {
-        return "{\"clock\":" + this.clock + ", \"order\":" + this.order + ",\"entity\":"
-                + this.entity.toString() + "}";
-    }
+    /**
+     * 
+     * @param fel
+     * @param worldState
+     * @param statisticsComputer
+     * @param randomizer
+     * @return
+     */
+    boolean planificate(FutureEventList fel, WorldState worldState,
+            StatisticsComputer statisticsComputer, Generator<Double> randomizer);
 }
