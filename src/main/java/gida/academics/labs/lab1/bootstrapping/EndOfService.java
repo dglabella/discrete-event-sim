@@ -12,10 +12,10 @@ public class EndOfService implements Event {
     private final Entity entity;
     private final int priority;
 
-    public EndOfService(double clock, Entity entity, int priority) {
+    public EndOfService(double clock, Entity entity) {
         this.clock = clock;
         this.entity = entity;
-        this.priority = priority;
+        this.priority = 1024;
     }
 
     @Override
@@ -35,5 +35,7 @@ public class EndOfService implements Event {
 
     @Override
     public boolean planificate(FutureEventList fel, WorldState worldState,
-            StatisticsComputer statisticsComputer, Generator<Double> randomizer) {}
+            StatisticsComputer statisticsComputer, Generator<Double> randomizer) {
+        return false;
+    }
 }
