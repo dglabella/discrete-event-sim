@@ -1,27 +1,21 @@
 package gida.academics.labs.lab1.utils.orderings;
 
 import java.util.Comparator;
-import gida.academics.labs.lab1.bootstrapping.Planificable;
+import gida.academics.labs.lab1.model.Event;
 
-public final class FutureEventListOrder implements Comparator<Planificable> {
-
-    // private Comparator<Planificable> typeComparator;
-
-    // public FutureEventListOrder(Comparator<Planificable> typeComparator) {
-    // this.typeComparator = typeComparator;
-    // }
+public final class FutureEventListOrder implements Comparator<Event> {
 
     @Override
-    public int compare(Planificable p1, Planificable p2) {
+    public int compare(Event e1, Event e2) {
 
         int ret = 0;
 
-        if (p1.getEvent().getClock() < p2.getEvent().getClock()) {
+        if (e1.getClock() < e2.getClock()) {
             ret = -1;
-        } else if (p1.getEvent().getClock() > p2.getEvent().getClock()) {
+        } else if (e1.getClock() > e2.getClock()) {
             ret = 1;
         } else {
-            if (p1.getEvent().getOrder().ordinal() < p2.getEvent().getOrder().ordinal())
+            if (e1.getPriority() < e2.getPriority())
                 ret = -1;
             else
                 ret = 1;

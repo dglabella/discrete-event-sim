@@ -9,23 +9,23 @@ import gida.academics.labs.lab1.utils.orderings.FutureEventListOrder;
 public class FutureEventList {
 
     private List<Event> fel;
-    private Comparator<Planificable> ordering;
+    private Comparator<Event> ordering;
 
     public FutureEventList() {
         this.fel = new ArrayList<>();
         this.ordering = new FutureEventListOrder();
     }
 
-    public FutureEventList(List<Planificable> list, Comparator<Planificable> ordering) {
+    public FutureEventList(List<Event> list, Comparator<Event> ordering) {
         this.fel = list;
         this.ordering = ordering;
     }
 
-    protected Planificable getImminent() {
+    public Event getImminent() {
         return this.fel.remove(0);
     }
 
-    public void insert(Planificable event) {
+    public void insert(Event event) {
         this.fel.add(event);
         this.fel.sort(ordering);
     }
@@ -35,9 +35,9 @@ public class FutureEventList {
         String ret = "[";
 
         for (int i = 0; i < this.fel.size() - 1; i++)
-            ret += this.fel.get(i).getEvent().toString() + ",\n";
+            ret += this.fel.get(i).toString() + ",\n";
 
-        ret += this.fel.get(this.fel.size() - 1).getEvent().toString() + "]";
+        ret += this.fel.get(this.fel.size() - 1).toString() + "]";
 
         return ret;
     }
