@@ -1,2 +1,3 @@
 - review about comparator for events when clock is equal.
 - log error mechanism.
+- using or not the Optional Class in the policies

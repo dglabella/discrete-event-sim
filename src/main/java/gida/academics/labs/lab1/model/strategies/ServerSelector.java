@@ -1,6 +1,8 @@
-package gida.academics.labs.lab1.model;
+package gida.academics.labs.lab1.model.strategies;
 
+import java.util.List;
 import java.util.Optional;
+import gida.academics.labs.lab1.model.Server;
 
 /**
  * This interface used to implement a selector. A selector is needed in the simulation to do some
@@ -11,11 +13,7 @@ import java.util.Optional;
  * @version 1
  */
 @FunctionalInterface
-public interface Selector<T> {
+public interface ServerSelector {
 
-    /**
-     * 
-     * @return An optional object with the selected candidate.
-     */
-    Optional<T> select();
+    Server selectServer(List<Server> servers);
 }
