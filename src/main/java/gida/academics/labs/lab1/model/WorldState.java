@@ -2,9 +2,6 @@ package gida.academics.labs.lab1.model;
 
 import java.util.List;
 import java.util.Optional;
-import gida.academics.labs.lab1.bootstrapping.Arrival;
-import gida.academics.labs.lab1.model.policies.UniqueServer;
-import gida.academics.labs.lab1.scenarios.airport.entities.resources.Airstrip;
 import gida.academics.labs.lab1.utils.exceptions.EmptyServerList;
 
 /**
@@ -32,7 +29,7 @@ public class WorldState {
         return this.servers;
     }
 
-    public boolean thereIsAnAvailableServer() {
+    public boolean isThereAServerAvailable() {
         boolean ret = false;
         for (Server server : this.servers)
             ret = ret || !server.isBusy();
