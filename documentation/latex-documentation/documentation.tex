@@ -1,7 +1,9 @@
 \documentclass{article}
 \usepackage{amsfonts}
 \usepackage{ebproof}
-
+\usepackage{fancyvrb}
+\usepackage{algorithm}
+\usepackage{algorithmic}
 \begin{document}
 \section*{Configuration}
 
@@ -68,19 +70,200 @@ We will consider a traditional system made up of $n$ servers and one channel, an
 \end{center}
 
 
+\newpage
+\section{Simulation Engine}
 
- 
+\begin{algorithm}[ht]
+	\caption{Simulation Step}
+	\begin{Verbatim}[tabsize = 4]
+	step(out OpResult res)
+	{
+		Event incomingEv; 
+		if(!fel.isEmpty())
+		{
+			ev = fel.getIncoming();
+			res = ev.applyChanges(configuration, statistics);
+		}
+		else
+			res = STEP_FAILURE_EMPTYFEL; 
+		return res; 	
+	}
+	\end{Verbatim}
+\end{algorithm}
+\newpage
 
+\section{Statistics Computer}
+\subsection{Algorithms}
+\begin{algorithm}[ht] 
+\caption{Report of a new entity to the statistics computer}
+\begin{Verbatim}[tabsize = 4]
+reportNewArribal(in IDType id, in int tarr, 
+							  out ReportResult res)
+{
+	DSResult dsRes;
+	if(simTime <= tarr){
+		dsRes = entsDS.insert(id, tarr); 
+		if(dsRes == SUCCESS){
+			totalEnts += 1;
+			curEnts += 1; 
+			simTime = tarr; 
+			if(maxEnts < curEnts)
+				maxEnts = curEnts; 
+			res = REPORT_SUCCESS; 		
+		}	
+		else if(dsRes == FAILURE_SPACE)
+			res = REPORT_FAILURE_SPACE;
+		else 
+			res = REPORT_FAILURE_REPEATED; 
+	}
+	else
+		res = REPORT_FAILURE_TIME; 
+	return res;
+} 
+\end{Verbatim} 
+\label{alg:reportNewEntity}
+\end{algorithm} 
 
+\newpage
 
+\begin{algorithm}[ht] 
+\caption{Report of the beginning of a new service to the statistics computer}
+\begin{Verbatim}[tabsize = 4]
+reportNewService(in IDType id, in int tServ, 
+							   out ReportResult res)
+{
+	DSResult dsRes;
+	int tArr; 
+	int tWait; 
+	int tIddle; 
+	if(simTime <= tServ){
+		dsRes = entsDS.getArribal(id, tArr); 
+		if(dsRes == SUCCESS){
+			simTime = tServ; 
+			curQueueSize -= 1;
+			tIddle = tServ - tLast; 
+			tWait = tServ - tArr; 
+			if(twait < minWait)
+				minWait = tWait;
+			if(maxWait < tWait)
+				maxWait = tWait;
+			totalWait += tWait;  
+			if(tIddle < minIddle)
+				minIddle = tIddle;
+			if(maxIddle < tIddle)
+				maxIddle = tIddle; 
+			totalIddle += tIddle; 
+			res = REPORT_SUCCESS; 		
+		}	
+		else 
+			res = REPORT_FAILURE_NOT_FOUND; 
+	}
+	else
+		res = REPORT_FAILURE_TIME; 
+	return res;
+} 
+\end{Verbatim} 
+\label{alg:reportNewService}
+\end{algorithm} 
 
+\newpage 
 
+\begin{algorithm}[ht] 
+\caption{Report the entrance of an entity to a queue}
+\begin{Verbatim}[tabsize = 4]
+reportNewEntrance(in IDType id, in int tent, 
+							   out ReportResult res)
+{
+	DSResult dsRes;
+	if(simTime <= tent){
+		dsRes = entsDS.belongs(id); 
+		if(dsRes == SUCCESS){
+			simTime = tent; 
+			curQueueSize += 1;
+			if(maxQueueSize < curQueueSize)
+				maxQueueSize = curQueueSize; 
+			res = REPORT_SUCCESS; 		
+		}	
+		else 
+			res = REPORT_FAILURE_NOT_FOUND; 
+	}
+	else
+		res = REPORT_FAILURE_TIME; 
+	return res;
+} 
+\end{Verbatim} 
+\label{alg:reportEntrance}
+\end{algorithm} 
 
+\newpage
 
- 
+\begin{algorithm}[ht] 
+\caption{Report the exit of an entity from the system}
+\begin{Verbatim}[tabsize = 4]
+reportNewExit(in IDType id, in int tExt, 
+							   out ReportResult res)
+{
+	DSResult dsRes;
+	int tTran; 
+	int tArr
+	if(simTime <= tExt){
+		dsRes = entsDS.getArribal(id, tArr); 
+		if(dsRes == SUCCESS){
+			entsDS.delete(id); 
+			simTime = tExt; 
+			tLast = text; 
+			curEnts -= 1; 
+			tTran = tExt - tArr;
+			if(tTran < minTran)
+				minTran = tTran;
+			if(maxTran < tTran)
+				maxTran = tTran; 
+			totalTran += tTran; 
+			res = REPORT_SUCCESS; 		
+		}	
+		else 
+			res = REPORT_FAILURE_NOT_FOUND; 
+	}
+	else
+		res = REPORT_FAILURE_TIME; 
+	return res;
+} 
+\end{Verbatim} 
+\label{alg:reportExit}
+\end{algorithm} 
 
-	
+\newpage
 
+\section*{Channel Implementation}
+\begin{algorithm}
+\begin{Verbatim}[tabsize = 4]
+addEntity(in Entity e, out ChannelResult res)
+{
+	DSResult resQ;
+	DSResult resW; 
+	PtrType ptr; 
 
+	resW = isWaitingDS.locate(e.getID()); 
+	if(resW == NOT_FOUND){
+		resQ = queue.push(e, ptr); 
+		if(resQ == SUCCESS){
+			resW = resW.insert(e.getID(), e, ptr); 
+			if(resW == SUCCESS)
+				res = SUCCESS; 
+			else
+				res = FAILURE_NO_SPACE; 
+
+		}
+		else
+			res = FAILURE_NO_SPACE 
+	}	
+	else
+		res = FAILURE_REPEATED 
+	return res; 
+} 
+
+\end{Verbatim} 
+\label{alg:addEntityQueue}
+\end{algorithm} 
 
 \end{document}
